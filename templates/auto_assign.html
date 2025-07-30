@@ -1,0 +1,24 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h4>Автоматическая разбивка на группы</h4>
+<form method="post">
+  <div class="mb-2">
+    <label>Этап:</label>
+    <select name="stage" class="form-control">
+      {% for s in stages %}
+        <option value="{{s}}">{{s}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-2">
+    <label>Выберите названия групп:</label><br>
+    {% for letter in 'ABCD' %}
+      <label class="form-check-label me-3">
+        <input type="checkbox" name="group_letters" value="{{letter}}" class="form-check-input"> {{letter}}
+      </label>
+    {% endfor %}
+  </div>
+  <button class="btn btn-primary mt-3">Разбить</button>
+</form>
+{% endblock %}

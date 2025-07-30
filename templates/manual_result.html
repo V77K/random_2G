@@ -1,0 +1,11 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h4>Участники добавлены в {{stage}}, группа {{group}}</h4>
+<ul>
+  {% for name, num in results %}
+    <li>{{name}} — №{{num}}</li>
+  {% endfor %}
+</ul>
+<a href="/manual_assign" class="btn btn-secondary mt-3">← Назад</a>
+{% endblock %}

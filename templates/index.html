@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h4 class="mb-3">Все этапы и участники:</h4>
+<div class="mb-3">
+  <a href="/clear_data" class="btn btn-outline-danger btn-sm me-2" onclick="return confirm('Очистить все этапы и группы?')">🗑 Очистить группы</a>
+  <a href="/clear_participants" class="btn btn-outline-danger btn-sm" onclick="return confirm('Очистить всех участников?')">🗑 Очистить участников</a>
+</div>
+{% for stage, groups in data.items() %}
+  <h5 class="mt-4">{{stage}}</h5>
+  <div class="row">
+    {% for group, members in groups.items() %}
+      <div class="col-md-4 col-sm-6 mb-3">
+        <div class="card">
+          <div class="card-header"><b>{{group}}</b></div>
+          <ul class="list-group list-group-flush">
+            {% for name, number in members.items() %}
+              <li class="list-group-item">{{name}} — №{{number}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+{% endblock %}
