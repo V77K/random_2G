@@ -1,9 +1,0 @@
-
-{% extends "layout.html" %}
-{% block content %}
-<h4>Основной список участников</h4>
-<form method="post">
-  <textarea name="participants" rows="10" class="form-control">{{ participants | join('\n') }}</textarea>
-  <button class="btn btn-primary mt-3">💾 Сохранить</button>
-</form>
-{% endblock %}
